@@ -8,6 +8,7 @@ class Cell {
 public:
     std::variant<int, std::string> value;
 
+     Cell(); 
     //För heltal
     Cell(int num);
 
@@ -15,4 +16,4 @@ public:
     Cell(const std::string& text);
 };
 
-#endif // CELL_H
+#endif 

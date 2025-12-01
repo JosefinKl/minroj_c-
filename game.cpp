@@ -1,14 +1,14 @@
+
 #include "game.h"
 
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cctype>
-#include "matrix.h"
+// Implementera konstruktorn
+Game::Game() : matrix(std::make_unique<Matrix>()) {
+    // Initiera saker här om det behövs
+}
 
-void Game::run() {
-
-    
-
-
+// Implementera play-funktionen
+void Game::play() {
+    Cell cell(" "); 
+    matrix->setCell(0, 0, cell);
+    matrix->display();
 }
