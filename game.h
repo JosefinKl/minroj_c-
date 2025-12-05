@@ -11,6 +11,7 @@ private:
 public:
     Game(); // Deklaration av konstruktorn
     void play(); // Deklaration av play-funktionen
+    
 };
 
 #endif

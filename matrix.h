@@ -6,14 +6,17 @@
 
 class Matrix {
 private:
-    static const int size = 6;
+    
     std::unique_ptr<std::unique_ptr<Cell[]>[]> grid;
 
 public:
     Matrix();
 
     void setCell(int row, int col, const Cell& cell);
+    const Cell& getCell(int row, int col) const;
+
     void display() const;
+    static const int size = 6;
 };
 
 

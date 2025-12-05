@@ -14,6 +14,10 @@ void Matrix::setCell(int row, int col, const Cell& cell) {
     }
 }
 
+const Cell& Matrix::getCell(int row, int col) const {
+    return grid[row][col];
+}
+
 
 void Matrix::display() const {
     // Skriv ut den övre kanten

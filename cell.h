@@ -8,7 +8,7 @@ class Cell {
 public:
     std::variant<int, std::string> value;
 
-     Cell(); 
+    Cell(); 
     //För heltal
     Cell(int num);
 
