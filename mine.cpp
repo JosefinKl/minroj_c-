@@ -44,40 +44,56 @@ void Mine::start_mine(){
 
     int num_close_mine = 0;
 
-for (int i = 0; i < Matrix::size; ++i) {
-    for (int j = 0; j < Matrix::size; ++j) {
+    for (int i = 0; i < Matrix::size; ++i) {
+        for (int j = 0; j < Matrix::size; ++j) {
 
-        int nearby = 0;
+            const Cell& cellv = matrix.getCell(i, j);
 
-        // Gå igenom alla 8 närliggande celler
-        for (int di = -1; di <= 1; ++di) {
-            for (int dj = -1; dj <= 1; ++dj) {
+            if (auto v = std::get_if<std::string>(&cellv.value)) {
+                if (*v != "m") {
+                    int nearby = 0;
 
-                if (di == 0 && dj == 0) continue; // hoppa över sig själv
+                // Gå igenom alla 8 närliggande celler
+                for (int di = -1; di <= 1; ++di) {
+                    for (int dj = -1; dj <= 1; ++dj) {
 
-                int ni = i + di;
-                int nj = j + dj;
+                        if (di == 0 && dj == 0) continue; // hoppa över sig själv
 
-                if (ni >= 0 && ni < Matrix::size &&
-                    nj >= 0 && nj < Matrix::size) {
+                        int ni = i + di;
+                        int nj = j + dj;
 
-                    const Cell& neigh = matrix.getCell(ni, nj);
+                        if (ni >= 0 && ni < Matrix::size &&
+                            nj >= 0 && nj < Matrix::size) {
 
-                    if (auto v = std::get_if<std::string>(&neigh.value)) {
-                        if (*v == "m") {
-                            nearby++;
+                            const Cell& neigh = matrix.getCell(ni, nj);
+
+                            
+
+                            if (auto v = std::get_if<std::string>(&neigh.value)) {
+                                if (*v == "m") {
+                                    nearby++;
+                                }
+                            }
                         }
                     }
                 }
+
+                //std::cout << "Cell (" << i << "," << j 
+                //        << ") har " << nearby << " minor runt sig\n";
+                
+                Cell c(nearby);
+                matrix.setCell(i, j, c);
+
             }
         }
+        }   
 
-        std::cout << "Cell (" << i << "," << j 
-                  << ") har " << nearby << " minor runt sig\n";
+            
     }
+
+    matrix.display();
+
+
 }
 
-
-
-}
 
