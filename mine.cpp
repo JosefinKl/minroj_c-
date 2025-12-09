@@ -17,7 +17,7 @@ void Mine::start_mine(){
     std::random_device rd;  // Används för att få en slumpmässig startpunkt
     std::mt19937 gen(rd()); 
 
-    Matrix matrix;
+    
 
     for (int i = 0; i < Matrix::size; ++i) {
         

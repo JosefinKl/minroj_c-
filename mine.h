@@ -6,8 +6,12 @@
 #include "matrix.h"
 
 class Mine {
-public:
+    private:
+    Matrix matrix;
+
+    public:
     void start_mine(); 
+    const Matrix& getMatrix() const { return matrix; }
 };
 
 #endif

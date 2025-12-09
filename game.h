@@ -6,7 +6,7 @@
 
 class Game {
 private:
-    std::unique_ptr<Matrix> matrix;
+    std::unique_ptr<Matrix> matrix_show;
 
 public:
     Game(); // Deklaration av konstruktorn
