@@ -12,6 +12,8 @@ void Mine::start_mine(){
     int x;
 
     Cell c(text);
+    number_of_nonemine = 0;
+    
 
      // Skapa en slumpmässig talgenerator som ska generera minor
     std::random_device rd;  // Används för att få en slumpmässig startpunkt
@@ -31,6 +33,7 @@ void Mine::start_mine(){
             int col_number_random = distr(gen);
 
             matrix.setCell(i, col_number_random, c);
+            
            
         }
         std::cout << std::endl;
@@ -43,6 +46,7 @@ void Mine::start_mine(){
     //Ge siffror för hur många angränsande minor
 
     int num_close_mine = 0;
+    
 
     for (int i = 0; i < Matrix::size; ++i) {
         for (int j = 0; j < Matrix::size; ++j) {
@@ -51,6 +55,7 @@ void Mine::start_mine(){
 
             if (auto v = std::get_if<std::string>(&cellv.value)) {
                 if (*v != "m") {
+                    number_of_nonemine++;
                     int nearby = 0;
 
                 // Gå igenom alla 8 närliggande celler
