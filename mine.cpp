@@ -41,7 +41,7 @@ void Mine::start_mine(){
     }
 
     //Kontrollera så det är minor på några platser, blir lite för många minor men fixar senare om tid finns. 
-    matrix.display();
+    //matrix.display();
 
     //Ge siffror för hur många angränsande minor
 
@@ -96,7 +96,7 @@ void Mine::start_mine(){
             
     }
 
-    matrix.display();
+    //matrix.display();
 
 
 }
